@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class StepDefinitions {
 
@@ -22,6 +23,8 @@ public class StepDefinitions {
 
     @Dado("que usuario acessa pagina home")
     public void que_usuario_acessa_pagina_home() {
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://www.google.com");
